@@ -340,7 +340,56 @@ $usermeta->name="special";
 $usermeta->zhname="作为专辑";
 $usermeta->create();
 
+/**
+ * tt_add_quicktags 增加编辑器标签
+ * @return none
+ */
+function tt_add_quicktags() {
+?>
 
+<script type="text/javascript">
+    QTags.addButton( 'pre', 'pre', '\n<pre>\n','\n</pre>\n' );
+    </script>
+<?php
+}
+
+add_action('admin_print_footer_scripts', 'tt_add_quicktags' );
+
+
+
+
+//初始化时执行add_editor_button函数   
+add_action('init', 'add_editor_button');   
+function add_editor_button() {   
+    //判断用户是否有编辑文章和页面的权限   
+    if ( ! current_user_can('edit_posts') && ! current_user_can('edit_pages') ) {   
+        return;   
+    }   
+    //判断用户是否使用可视化编辑器   
+    if ( get_user_option('rich_editing') == 'true' ) {   
+  
+        add_filter( 'mce_external_plugins', 'add_plugin' );   
+        add_filter( 'mce_buttons', 'register_button' );   
+    }   
+}  
+
+/**
+ * register_button 添加按钮
+ * @param  array $buttons 按钮数组
+ * @return array 按钮数组
+ */
+function register_button( $buttons ) {   
+    array_push( $buttons, "pre" ); //添加 一个pre按钮   
+    return $buttons;   
+}
+
+/**
+ * @param array $plugin_array 按钮所在的js
+ */
+function add_plugin( $plugin_array ) {   
+   $plugin_array['mybutton_script'] = get_bloginfo( 'template_url' ) . '/js/editor_button.js'; //pre按钮的js路径   
+   return $plugin_array;
+}
 
 /**
  * Enqueue scripts and styles.
