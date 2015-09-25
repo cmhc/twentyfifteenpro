@@ -379,7 +379,10 @@ function add_editor_button() {
  * @return array 按钮数组
  */
 function register_button( $buttons ) {   
-    array_push( $buttons, "pre" ); //添加 一个pre按钮   
+    array_push( $buttons, "php" ); //添加 php代码按钮
+    array_push( $buttons, "js" ); //添加 js代码按钮
+    array_push( $buttons, "code" ); //添加 js代码按钮
+
     return $buttons;   
 }
 
