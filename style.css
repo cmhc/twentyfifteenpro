@@ -309,9 +309,9 @@ pre {
 	max-width: 100%;
 	overflow: auto;
 	padding: 0.8em;
-	white-space: pre;
+	/*white-space: pre;
 	white-space: pre-wrap;
-	word-wrap: break-word;
+	word-wrap: break-word;*/
 }
 
 abbr[title] {

@@ -431,6 +431,14 @@ function twentyfifteen_scripts() {
 		'expand'   => '<span class="screen-reader-text">' . __( 'expand child menu', 'twentyfifteen' ) . '</span>',
 		'collapse' => '<span class="screen-reader-text">' . __( 'collapse child menu', 'twentyfifteen' ) . '</span>',
 	) );
+
+	//增加代码高亮
+	wp_enqueue_script("highlight-core",get_template_directory_uri().'/js/highlight/shCore.js',true);
+	wp_enqueue_script("highlight-autoload",get_template_directory_uri().'/js/highlight/shAutoloader.js',true);
+	wp_enqueue_style("highlight-core",get_template_directory_uri().'/css/highlight/shCoreDefault.css');
+	//wp_enqueue_style("highlight-theme",get_template_directory_uri().'/css/highlight/shThemeDefault.css');
+	
+
 }
 add_action( 'wp_enqueue_scripts', 'twentyfifteen_scripts' );
 
@@ -537,7 +545,18 @@ add_filter( 'get_search_form', 'twentyfifteen_search_form_modify' );
 function footer_info_display(){
 	echo get_option('footer_text')."<p></p>";
 	echo '<p><a href="http://imhuchao.com/tag/twenty-fifteen-pro">Twenty Fifteen Pro</a>由 <a href="http://imhuchao.com">imhuchao.com</a> 进行维护升级</p>';
+	$jspath = get_template_directory_uri().'/js/highlight';
+	echo <<<EOF
+<script type="text/javascript">
+	SyntaxHighlighter.autoloader.apply(null, [
+		"js {$jspath}/shBrushJScript.js",
+		"php {$jspath}/shBrushPhp.js",
+	]);
+	SyntaxHighlighter.all();
+</script>
+EOF;
 }
+
 add_action('twentyfifteen_credits','footer_info_display');
 /**
  * Implement the Custom Header feature.
