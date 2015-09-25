@@ -475,3 +475,9 @@ body.rtl {
 .rtl table caption {
 	text-align: right;
 }
+.php:before{
+	content:"<PHPCODE>";
+}
+.js:before{
+	content:"<JSCODE>";
+}

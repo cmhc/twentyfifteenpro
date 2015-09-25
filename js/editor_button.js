@@ -6,7 +6,7 @@
                 title : 'code',   
                 image : url + '/code.png',//注意图片的路径 url是当前js的路径   
                 onclick : function() {
-                     var selected_text = ed.selection.getContent().replace("<p>","").replace("</p>","");;
+                     var selected_text = ed.selection.getContent().replace("<p>","").replace("</p>","").replace(/<pre[^>]*>/g,"").replace("</pre>","");
                      ed.selection.setContent('<code>'+selected_text+'</code>'); //这里是你要插入到编辑器的内容，你可以直接写上广告代码
                 }   
             });
@@ -15,8 +15,8 @@
                 title : 'php代码',   
                 image : url + '/php.png',//注意图片的路径 url是当前js的路径   
                 onclick : function() {
-                     var selected_text = ed.selection.getContent().replace("<p>","").replace("</p>","");;
-                     ed.selection.setContent('<pre class="brush:php">'+selected_text+'</pre>'); //这里是你要插入到编辑器的内容，你可以直接写上广告代码
+                     var selected_text = ed.selection.getContent().replace("<p>","").replace("</p>","").replace(/<pre[^>]*>/g,"").replace("</pre>","");
+                     ed.selection.setContent('<pre class="brush:php php">'+selected_text+'</pre>'); //这里是你要插入到编辑器的内容，你可以直接写上广告代码
                 }   
             });
 
@@ -24,8 +24,8 @@
                 title : 'js代码',   
                 image : url + '/js.png',//注意图片的路径 url是当前js的路径   
                 onclick : function() {
-                     var selected_text = ed.selection.getContent().replace("<p>","").replace("</p>","");
-                     ed.selection.setContent('<pre class="brush:js">'+selected_text+'</pre>'); //这里是你要插入到编辑器的内容，你可以直接写上广告代码
+                     var selected_text = ed.selection.getContent().replace("<p>","").replace("</p>","").replace(/<pre[^>]*>/g,"").replace("</pre>","");
+                     ed.selection.setContent('<pre class="brush:js js">'+selected_text+'</pre>'); //这里是你要插入到编辑器的内容，你可以直接写上广告代码
                 }   
             });
 
