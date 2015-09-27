@@ -28,12 +28,16 @@
 /**
  * 去掉在中国无法使用的东西
  */
-require(TEMPLATEPATH.'/plugins/wpforchina.class.php');
+if( !class_exists("wpforchina") ){
+	require(TEMPLATEPATH.'/plugins/wpforchina.class.php');
+}
 
 /**
  * 增加蜘蛛日志记录
  */
-require(TEMPLATEPATH.'/plugins/spiderLog.class.php');
+if( !class_exists('spiderLog') ){
+	require(TEMPLATEPATH.'/plugins/spiderLog.class.php');
+}
 
 
 /**

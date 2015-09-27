@@ -14,9 +14,6 @@
  * @date 2015-09-27
  */
 
-
-if( class_exists('spiderLog') ) return False;
-
 class spiderLog
 {
 

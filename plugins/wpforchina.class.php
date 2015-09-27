@@ -1,6 +1,4 @@
 <?php
-
-if( class_exists("wpforchina") ) return False;
 /**
  * 让wordpress更加适应中国
  */
