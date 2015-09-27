@@ -26,6 +26,17 @@
  */
 
 /**
+ * 去掉在中国无法使用的东西
+ */
+require(TEMPLATEPATH.'/plugins/wpforchina.class.php');
+
+/**
+ * 增加蜘蛛日志记录
+ */
+require(TEMPLATEPATH.'/plugins/spiderLog.class.php');
+
+
+/**
  * Set the content width based on the theme's design and stylesheet.
  *
  * @since Twenty Fifteen 1.0
@@ -446,29 +457,7 @@ function twentyfifteen_scripts() {
 add_action( 'wp_enqueue_scripts', 'twentyfifteen_scripts' );
 
 
-/**
- * 移除emoji
- */
-remove_action( 'admin_print_scripts', 'print_emoji_detection_script');
-remove_action( 'admin_print_styles', 'print_emoji_styles');
 
-remove_action( 'wp_head', 'print_emoji_detection_script', 7);
-remove_action( 'wp_print_styles', 'print_emoji_styles');
-
-remove_filter( 'the_content_feed', 'wp_staticize_emoji');
-remove_filter( 'comment_text_rss', 'wp_staticize_emoji');
-remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email');
-
-/**
- * 移除google字体
- * @return none
- */
-function remove_open_sans() {
-    wp_deregister_style( 'open-sans' );
-    wp_register_style( 'open-sans', false );
-    wp_enqueue_style('open-sans','');
-}
-add_action( 'init', 'remove_open_sans' );
 
 /**
  * Add featured image as background image to post navigation elements.
