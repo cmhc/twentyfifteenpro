@@ -31,6 +31,12 @@ class spiderAnalyse{
 	public function getcount($date){
 		$loginfo = array();
 		$log = ABSPATH.'/wp-content/log/spiderlog-'.date("Y-m").'.php';
+		
+		if( !file_exists($log) ){
+			echo '<h1 style="text-align:center;color:#ccc;margin-top:50px;">未生成蜘蛛文件，等待蜘蛛爬行</h1>';
+			return False;
+		}
+
 		$fp = fopen($log,'r');
 		$i = 0;
 
@@ -57,8 +63,8 @@ class spiderAnalyse{
 	 * @return none
 	 */
 	public function spideranalysePage(){
-		$loginfo = $this->getcount('2015-09');
-		include( dirname(__FILE__).'/analyse/index.php' );
+		if( ($loginfo = $this->getcount('2015-09')) )
+			include( dirname(__FILE__).'/analyse/index.php' );
 	}
 
 
