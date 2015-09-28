@@ -37,6 +37,7 @@ if( !class_exists("wpforchina") ){
  */
 if( !class_exists('spiderLog') ){
 	require(TEMPLATEPATH.'/plugins/spiderLog.class.php');
+	require(TEMPLATEPATH.'/plugins/spiderAnalyse.class.php');
 }
 
 
