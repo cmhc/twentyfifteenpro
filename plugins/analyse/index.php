@@ -1,10 +1,16 @@
 ﻿<?php
 
-$default_date = date("Y-m");
+/**
+ * 展示图表的文件
+ * 已经定义的变量
+ * $default_date
+ */
+
+
+
 for($i=1;$i<32;$i++){
     $date[] = $default_date.'-'.$i;
 }
-
 
 $series = array();
 

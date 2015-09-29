@@ -16,6 +16,7 @@
  */
 while( have_posts() ): the_post();
 	$content = get_the_content();
+	//$content = apply_filters('the_content', $content);
 	preg_match("|<pre>.*?</pre>|is",$content,$matches);
 	if( empty($matches) ) die("没有可执行的代码");
 	$pre = $matches[0];
@@ -48,7 +49,7 @@ get_header(); ?>
 			
 
 			<div class="entry-content">
-				<?php echo str_replace($pre,$apicontent,$content);?>
+				<?php echo wpautop(str_replace($pre,$apicontent,$content));?>
 			</div>
 
 

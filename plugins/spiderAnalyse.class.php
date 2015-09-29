@@ -63,7 +63,8 @@ class spiderAnalyse{
 	 * @return none
 	 */
 	public function spideranalysePage(){
-		if( ($loginfo = $this->getcount('2015-09')) )
+		$default_date = date("Y-m");
+		if( ($loginfo = $this->getcount($default_date)) )
 			include( dirname(__FILE__).'/analyse/index.php' );
 	}
 
