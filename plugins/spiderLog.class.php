@@ -108,5 +108,5 @@ class spiderLog
 	
 }
 
-$logname = 'spiderlog-'.date("Y-m").'.php';
+$logname = 'spiderlog-'.date("Y-m-d").'.php';
 spiderLog::record(ABSPATH.'/wp-content/log/'.$logname);
