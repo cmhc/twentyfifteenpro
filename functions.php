@@ -35,9 +35,9 @@ if( !class_exists("wpforchina") ){
 /**
  * 增加蜘蛛日志记录
  */
-if( !class_exists('spiderLog') ){
-	require(TEMPLATEPATH.'/plugins/spiderLog.class.php');
-}
+//if( !class_exists('spiderLog') ){
+//	require(TEMPLATEPATH.'/plugins/spiderLog.class.php');
+//}
 
 
 /**
