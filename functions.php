@@ -451,9 +451,17 @@ function twentyfifteen_scripts() {
 	) );
 
 	//增加代码高亮
-	wp_enqueue_script("highlight-core",get_template_directory_uri().'/js/highlight/shCore.js',true);
-	wp_enqueue_script("highlight-autoload",get_template_directory_uri().'/js/highlight/shAutoloader.js',true);
-	wp_enqueue_style("highlight-core",get_template_directory_uri().'/css/highlight/shCoreDefault.css');
+	//wp_enqueue_script("highlight-core",get_template_directory_uri().'/js/highlight/shCore.js',true);
+	wp_enqueue_script("highlight-core",'http://cdn.bootcss.com/SyntaxHighlighter/3.0.83/scripts/shCore.min.js',true);
+
+	//wp_enqueue_script("highlight-autoload",get_template_directory_uri().'/js/highlight/shAutoloader.js',true);
+	wp_enqueue_script("highlight-autoload",'http://cdn.bootcss.com/SyntaxHighlighter/3.0.83/scripts/shAutoloader.min.js',true);
+
+	
+	//wp_enqueue_style("highlight-core",get_template_directory_uri().'/css/highlight/shCoreDefault.css');
+	wp_enqueue_style("highlight-core",'http://cdn.bootcss.com/SyntaxHighlighter/3.0.83/styles/shCoreDefault.min.css');
+
+	
 	//wp_enqueue_style("highlight-theme",get_template_directory_uri().'/css/highlight/shThemeDefault.css');
 	
 
@@ -541,12 +549,13 @@ add_filter( 'get_search_form', 'twentyfifteen_search_form_modify' );
 function footer_info_display(){
 	echo get_option('footer_text')."<p></p>";
 	echo '<p><a href="http://imhuchao.com/tag/twenty-fifteen-pro">Twenty Fifteen Pro</a>由 <a href="http://imhuchao.com">imhuchao.com</a> 进行维护升级</p>';
-	$jspath = get_template_directory_uri().'/js/highlight';
+	//$jspath = get_template_directory_uri().'/js/highlight';
+	$jspath = 'http://cdn.bootcss.com/SyntaxHighlighter/3.0.83/scripts/';
 	echo <<<EOF
 <script type="text/javascript">
 	SyntaxHighlighter.autoloader.apply(null, [
-		"js {$jspath}/shBrushJScript.js",
-		"php {$jspath}/shBrushPhp.js",
+		"js {$jspath}/shBrushJScript.min.js",
+		"php {$jspath}/shBrushPhp.min.js",
 	]);
 	SyntaxHighlighter.all();
 </script>
