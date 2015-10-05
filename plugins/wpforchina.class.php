@@ -34,8 +34,8 @@ class wpforchina{
 	public function reloadscript(){
 		//移除wordpressjquery
     	wp_deregister_script('jquery');
-    	wp_enqueue_script('jquery','http://lib.sinaapp.com/js/jquery/1.10/jquery-1.10.0.min.js');
-     	wp_enqueue_script('jquerym','http://lib.sinaapp.com/js/jquery.migrate/1.2.1/jquery-migrate-1.2.1.min.js');
+    	wp_enqueue_script('jquery','http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js');
+     	//wp_enqueue_script('jquerym','http://lib.sinaapp.com/js/jquery.migrate/1.2.1/jquery-migrate-1.2.1.min.js');
 	}
 
 
