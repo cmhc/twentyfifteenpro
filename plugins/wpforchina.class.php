@@ -7,6 +7,7 @@ class wpforchina{
 	public function __construct(){
 		//移除字体
 		add_action( 'init', array(&$this,'removefont') );
+		add_action( 'init', array(&$this,'reloadscript') );
 		//移除emoji
 	    remove_action( 'admin_print_scripts', 'print_emoji_detection_script');
 		remove_action( 'admin_print_styles', 'print_emoji_styles');
@@ -28,6 +29,13 @@ class wpforchina{
 	    wp_deregister_style( 'open-sans' );
 	    wp_register_style( 'open-sans', false );
 	    wp_enqueue_style('open-sans','');
+	}
+
+	public function reloadscript(){
+		//移除wordpressjquery
+    	wp_deregister_script('jquery');
+    	wp_enqueue_script('jquery','http://lib.sinaapp.com/js/jquery/1.10/jquery-1.10.0.min.js');
+     	wp_enqueue_script('jquerym','http://lib.sinaapp.com/js/jquery.migrate/1.2.1/jquery-migrate-1.2.1.min.js');
 	}
 
 
