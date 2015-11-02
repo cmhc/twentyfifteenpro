@@ -61,7 +61,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
 	border: 0;
-	font-family: inherit;
+	font-family:"Microsoft YaHei",consolas,Cambria,"Times New Roman",Georgia,Times,sans-serif;;
 	font-size: 100%;
 	font-style: inherit;
 	font-weight: inherit;
@@ -221,7 +221,7 @@ h4,
 h5,
 h6 {
 	clear: both;
-	font-weight: 700;
+	font-weight: 100;
 }
 
 p {
